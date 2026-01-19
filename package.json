@@ -2,6 +2,7 @@
     "name": "vuers",
     "type": "module",
     "description": "Discover your contributions on vuejs and vueuse organisations",
+    "packageManager": "pnpm@10.15.1",
     "homepage": "https://github.com/lonewolfyx/vuers",
     "bugs": {
         "url": "https://github.com/lonewolfyx/vuers/issues"
