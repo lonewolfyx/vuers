@@ -59,7 +59,14 @@
                     </div>
                 </div>
             </div>
-            <div class="relative border-t border-dashed" />
+            <div
+                :class="cn(
+                    'relative border-t border-dashed',
+                    'before:absolute before:size-4 before:bg-neutral-100 before:-top-2 before:rounded-full before:left-28',
+                    'after:absolute after:size-4 after:bg-neutral-100 after:-top-2 after:rounded-full after:right-28',
+                    'dark:before:bg-zinc-800 dark:after:bg-zinc-800',
+                )"
+            />
             <div class="container flex-col">
                 <div class="w-full max-w-[45rem] mx-auto flex justify-center py-40">
                     <div class="flex flex-col items-center gap-10">
@@ -111,7 +118,14 @@
                 </div>
                 <div class="w-full max-w-56 flex flex-col gap-10 items-center" />
             </div>
-            <div class="relative border-t border-dashed" />
+            <div
+                :class="cn(
+                    'relative border-t border-dashed',
+                    'before:absolute before:size-4 before:bg-neutral-100 before:-top-2 before:rounded-full before:left-28',
+                    'after:absolute after:size-4 after:bg-neutral-100 after:-top-2 after:rounded-full after:right-28',
+                    'dark:before:bg-zinc-800 dark:after:bg-zinc-800',
+                )"
+            />
             <div class="container py-12 flex-col gap-12">
                 <div class="w-full flex flex-col items-center gap-3">
                     <span class="text-3xl text-foreground/80 dark:text-foreground">Core Team</span>
@@ -191,7 +205,14 @@
                     </Button>
                 </div>
             </div>
-            <div class="relative border-t border-dashed" />
+            <div
+                :class="cn(
+                    'relative border-t border-dashed',
+                    'before:absolute before:size-4 before:bg-neutral-100 before:-top-2 before:rounded-full before:left-28',
+                    'after:absolute after:size-4 after:bg-neutral-100 after:-top-2 after:rounded-full after:right-28',
+                    'dark:before:bg-zinc-800 dark:after:bg-zinc-800',
+                )"
+            />
             <div class="container py-12 flex-col gap-12">
                 <div class="w-full flex flex-col items-center gap-3">
                     <span class="text-3xl text-foreground/80 dark:text-foreground">Contributors</span>
@@ -254,7 +275,14 @@
                     </Button>
                 </div>
             </div>
-            <div class="relative border-t border-dashed" />
+            <div
+                :class="cn(
+                    'relative border-t border-dashed',
+                    'before:absolute before:size-4 before:bg-neutral-100 before:-top-2 before:rounded-full before:left-28',
+                    'after:absolute after:size-4 after:bg-neutral-100 after:-top-2 after:rounded-full after:right-28',
+                    'dark:before:bg-zinc-800 dark:after:bg-zinc-800',
+                )"
+            />
             <div class="container py-12">
                 <div class="w-full flex justify-between items-center text-xs">
                     <span>© build with NuxtJs v4 & Tailwindcss. Source is on Github</span>
