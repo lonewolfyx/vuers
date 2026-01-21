@@ -1,10 +1,10 @@
 import { dirname, resolve } from 'node:path'
 import { mkdir, writeFile } from 'node:fs/promises'
-import { fileURLToPath } from 'node:url'
 import { Octokit } from 'octokit'
 import { paginateRest } from '@octokit/plugin-paginate-rest'
 import { retry } from '@octokit/plugin-retry'
 import dotenv from 'dotenv'
+import process from 'node:process'
 
 dotenv.config({ path: '../.env' })
 
@@ -14,7 +14,7 @@ const ORGS = [
     'vueuse',
 ] as const
 const HELPFUL_REACTIONS_THRESHOLD = 3
-const OUTPUT_FILE = resolve(fileURLToPath(new URL('../public/contributors.json', import.meta.url)))
+const OUTPUT_FILE = resolve(process.cwd(), '../public/contributors.json')
 const USER_AGENT = 'nuxters-contributor-collector'
 
 type ContributorAccumulator = {
