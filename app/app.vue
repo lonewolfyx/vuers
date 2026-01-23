@@ -13,7 +13,14 @@
         <div class="flex flex-col z-20">
             <div class="container">
                 <div class="w-full flex justify-between items-center h-12">
-                    <span>>.vuer:$</span>
+                    <div class="flex items-center gap-2">
+                        <Icon
+                            mode="svg"
+                            name="si:terminal-fill"
+                            class="size-5 text-green-500"
+                        />
+                        .vuer:$
+                    </div>
                     <div class="flex items-center gap-3">
                         <Button
                             as-child
