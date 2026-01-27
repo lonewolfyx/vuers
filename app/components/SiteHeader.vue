@@ -5,7 +5,7 @@
                 <Icon
                     class="size-5 text-green-500"
                     mode="svg"
-                    name="si:terminal-fill"
+                    name="logos:vue"
                 />
                 .vuer:$
             </div>
@@ -43,7 +43,7 @@
                             mode="svg"
                             name="line-md:github-loop"
                         />
-                        <span>333,333</span>
+                        <span>∞</span>
                     </NuxtLink>
                 </Button>
                 <Separator
