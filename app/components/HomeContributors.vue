@@ -6,30 +6,35 @@
         </div>
         <div class="w-full grid grid-cols-12 gap-6">
             <div
-                v-for="item in Array.from({ length: 36 }, (_, i) => i+1)"
-                :key="`Contributors${item}`"
+                v-for="(contributor, index) in contributors"
+                :key="`Contributors${index}`"
                 :class="cn(
                     'relative w-full h-56',
                     'col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2',
                     'overflow-hidden rounded-lg',
                 )"
             >
-                <img
-                    alt="Mysha Feeney"
-                    class="w-full h-full object-cover"
-                    src="https://avatars.githubusercontent.com/yyx990803"
+                <NuxtLink
+                    :title="contributor.username"
+                    :to="`/${contributor.username}`"
                 >
+                    <img
+                        :alt="contributor.username"
+                        :src="`https://avatars.githubusercontent.com/${contributor.username}`"
+                        class="w-full h-full object-cover"
+                    >
 
-                <div class="absolute inset-x-4 bottom-2 rounded-lg bg-transparent p-4 shadow backdrop-blur-xl">
-                    <div class="flex flex-col gap-4">
-                        <div class="flex w-full justify-between items-center">
-                            <span class="text-xs font-medium text-green-500">#1</span>
-                            <span class="text-xs font-light text-muted leading-tight">
-                                Mysha Feeney
-                            </span>
+                    <div class="absolute inset-x-4 bottom-2 rounded-lg bg-transparent p-4 shadow backdrop-blur-xl">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex w-full justify-between items-center">
+                                <span class="text-xs font-medium text-green-500">#{{ contributor.rank }}</span>
+                                <span class="text-xs font-light text-muted leading-tight">
+                                    {{ contributor.username }}
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </NuxtLink>
             </div>
         </div>
         <div class="w-full flex justify-center">
@@ -51,8 +56,21 @@
 
 <script lang="ts" setup>
 import { cn } from '~/lib/utils'
+import type { IContributorRecord } from '#shared/types'
 
 defineOptions({
     name: 'HomeContributors',
+})
+
+const url = useRequestURL().origin
+
+const { data: allContributors } = useLazyFetch<IContributorRecord[]>('/contributors.json', {
+    baseURL: url,
+    server: false,
+    default: () => [],
+})
+
+const contributors = computed(() => {
+    return allContributors.value.slice(0, 36)
 })
 </script>
