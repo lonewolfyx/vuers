@@ -56,7 +56,7 @@
 
 <script lang="ts" setup>
 import { cn } from '~/lib/utils'
-import type { IContributorRecord } from '#shared/types'
+import type { IContributorRecord, ITeamMemberRecord } from '#shared/types'
 
 defineOptions({
     name: 'HomeContributors',
@@ -70,7 +70,25 @@ const { data: allContributors } = useLazyFetch<IContributorRecord[]>('/contribut
     default: () => [],
 })
 
+const { data: allTeamMembers } = useLazyFetch<ITeamMemberRecord[]>('/team-member.json', {
+    baseURL: url,
+    server: false,
+    default: () => [],
+})
+
+const communityContributors = computed(() => {
+    if (!allContributors.value || !allTeamMembers.value) return []
+
+    // 提取团队成员名字集合，提高查询效率 (O(1) lookup)
+    const teamNames = new Set(allTeamMembers.value.map(m => m.username))
+
+    // 过滤掉存在于 teamNames 中的贡献者
+    return allContributors.value.filter(
+        c => !teamNames.has(c.username),
+    )
+})
+
 const contributors = computed(() => {
-    return allContributors.value.slice(0, 36)
+    return communityContributors.value.slice(0, 36)
 })
 </script>
