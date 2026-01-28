@@ -17,7 +17,7 @@
                     as-child
                     variant="ghost"
                 >
-                    <NuxtLink to="/">
+                    <NuxtLink to="/members">
                         Team Members
                     </NuxtLink>
                 </Button>
@@ -25,7 +25,7 @@
                     as-child
                     variant="ghost"
                 >
-                    <NuxtLink to="/">
+                    <NuxtLink to="/contributor">
                         Contributors
                     </NuxtLink>
                 </Button>
