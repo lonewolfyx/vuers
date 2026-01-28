@@ -31,20 +31,6 @@
                     </div>
                 </div>
             </div>
-            <!--                    <div -->
-            <!--                        v-for="item in Array.from({ length: 36 }, (_, i) => i+1)" -->
-            <!--                        :key="`Contributors${item}`" -->
-            <!--                        class="col-span-12 md:col-span-4 lg:col-span-3 xl:col-span-2" -->
-            <!--                    > -->
-            <!--                        <div class="relative flex flex-col items-center gap-4"> -->
-            <!--                            <img -->
-            <!--                                alt="sad" -->
-            <!--                                class="w-24 h-24 rounded-full object-cover" -->
-            <!--                                src="https://avatars.githubusercontent.com/yyx990803" -->
-            <!--                            > -->
-            <!--                            <span class="w-full text-sm truncate text-center">Evan You</span> -->
-            <!--                        </div> -->
-            <!--                    </div> -->
         </div>
         <div class="w-full flex justify-center">
             <Button
