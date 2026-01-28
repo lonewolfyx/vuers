@@ -25,7 +25,7 @@
                     as-child
                     variant="ghost"
                 >
-                    <NuxtLink to="/contributor">
+                    <NuxtLink to="/contributors">
                         Contributors
                     </NuxtLink>
                 </Button>

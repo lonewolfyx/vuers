@@ -19,10 +19,7 @@
                 class="rounded-full"
                 variant="secondary"
             >
-                <NuxtLink
-                    href="https://github.com/vueuse/vueuse/graphs/contributors"
-                    target="_blank"
-                >
+                <NuxtLink to="/members">
                     View more core team members
                 </NuxtLink>
             </Button>
