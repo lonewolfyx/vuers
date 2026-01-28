@@ -1,14 +1,17 @@
 <template>
     <div class="container">
         <div class="w-full flex justify-between items-center h-12">
-            <div class="flex items-center gap-2">
-                <Icon
-                    class="size-5 text-green-500"
-                    mode="svg"
-                    name="logos:vue"
-                />
-                .vuer:$
-            </div>
+            <NuxtLink to="/">
+                <div class="flex items-center gap-2">
+                    <Icon
+                        class="size-5 text-green-500"
+                        mode="svg"
+                        name="logos:vue"
+                    />
+                    .vuer:$
+                </div>
+            </NuxtLink>
+
             <div class="flex items-center gap-3">
                 <Button
                     as-child
