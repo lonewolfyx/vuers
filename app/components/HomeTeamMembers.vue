@@ -33,7 +33,8 @@
 
                     <div class="p-6 absolute z-10 w-full h-full grid justify-center items-end">
                         <div>
-                            <span
+                            <NuxtLink
+                                :to="`/${member.username}`"
                                 :class="cn(
                                     'block antialiased tracking-normal',
                                     'text-xl font-medium leading-snug',
@@ -41,7 +42,7 @@
                                 )"
                             >
                                 {{ member.username }}
-                            </span>
+                            </NuxtLink>
                             <div class="flex items-center justify-center gap-1 mt-2">
                                 <Button
                                     as-child
