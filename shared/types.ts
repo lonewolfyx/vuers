@@ -1,3 +1,10 @@
+export interface ITeamMemberRecord {
+    username: string
+    id: number
+    avatar_url: string
+    org: string[]
+}
+
 export interface IContributorRecord {
     username: string
     githubId: string
@@ -9,11 +16,5 @@ export interface IContributorRecord {
     reactions: number
     score: number
     rank: number
-}
-
-export interface ITeamMemberRecord {
-    username: string
-    id: number
-    avatar_url: string
-    org: string[]
+    member?: ITeamMemberRecord
 }
