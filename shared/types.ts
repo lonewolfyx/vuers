@@ -1,4 +1,4 @@
-export interface Contributor {
+export interface IContributorRecord {
     username: string
     githubId: string
     issues: number
