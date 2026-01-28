@@ -79,10 +79,8 @@ const { data: allTeamMembers } = useLazyFetch<ITeamMemberRecord[]>('/team-member
 const communityContributors = computed(() => {
     if (!allContributors.value || !allTeamMembers.value) return []
 
-    // 提取团队成员名字集合，提高查询效率 (O(1) lookup)
     const teamNames = new Set(allTeamMembers.value.map(m => m.username))
 
-    // 过滤掉存在于 teamNames 中的贡献者
     return allContributors.value.filter(
         c => !teamNames.has(c.username),
     )
