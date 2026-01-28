@@ -11,59 +11,53 @@
                     :key="`Core Team${index}`"
                     class="col-span-12 md:col-span-4 xl:col-span-2"
                 >
-                    <div
-                        class="relative flex flex-col bg-clip-border rounded-xl bg-transparent w-full h-full"
-                    >
-                        <div
-                            :class="cn(
-                                'relative bg-clip-border',
-                                'bg-transparent shadow-none',
-                                'rounded-xl md:rounded-2xl overflow-hidden',
-                                'h-64 w-full',
-                            )"
+                    <div class="flex flex-col items-center gap-5">
+                        <NuxtLink
+                            :to="`https://github.com/${member.username}`"
+                            class="w-40 h-40"
+                            target="_blank"
                         >
                             <img
+                                class="h-full w-full object-cover object-bottom rounded-full"
                                 :alt="member.username"
                                 :src="member.avatar_url"
-                                class="relative h-full w-full object-cover object-bottom"
                             >
-                            <div
-                                class="to-bg-deep-purple-90 absolute left-0 bottom-0 h-1/2 w-full bg-gradient-to-t from-black/50 via-black/50 to-transparent"
+                        </NuxtLink>
+                        <div class="flex items-center gap-2">
+                            <Icon
+                                mode="svg"
+                                name="logos:vue"
                             />
+                            <Icon
+                                mode="svg"
+                                name="logos:vueuse"
+                            />
+                            <NuxtLink
+                                :to="`/${member.username}`"
+                                class="text-foreground font-mono font-medium"
+                                target="_blank"
+                            >
+                                {{ member.username }}
+                            </NuxtLink>
                         </div>
-
-                        <div class="p-6 absolute z-10 w-full h-full grid justify-center items-end">
-                            <div>
+                        <div class="flex items-center justify-center gap-1">
+                            <Button
+                                as-child
+                                class="hover:bg-neutral-500/20"
+                                size="icon"
+                                variant="ghost"
+                            >
                                 <NuxtLink
-                                    :class="cn(
-                                        'block antialiased tracking-normal',
-                                        'text-xl font-medium leading-snug',
-                                        'text-muted dark:text-foreground',
-                                    )"
-                                    :to="`/${member.username}`"
+                                    :to="`https://github.com/`"
+                                    target="_blank"
                                 >
-                                    {{ member.username }}
+                                    <Icon
+                                        class="text-foreground text-2xl"
+                                        mode="svg"
+                                        name="mdi:github"
+                                    />
                                 </NuxtLink>
-                                <div class="flex items-center justify-center gap-1 mt-2">
-                                    <Button
-                                        as-child
-                                        class="hover:bg-neutral-500/20"
-                                        size="icon"
-                                        variant="ghost"
-                                    >
-                                        <NuxtLink
-                                            :to="`https://github.com/${member.username}`"
-                                            target="_blank"
-                                        >
-                                            <Icon
-                                                class="text-muted dark:text-muted-foreground"
-                                                mode="svg"
-                                                name="mdi:github"
-                                            />
-                                        </NuxtLink>
-                                    </Button>
-                                </div>
-                            </div>
+                            </Button>
                         </div>
                     </div>
                 </div>
@@ -85,7 +79,6 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '~/lib/utils'
 import type { ITeamMemberRecord } from '#shared/types'
 
 useSeoMeta({
@@ -101,10 +94,10 @@ const { data: allTeamMembers } = useLazyFetch<ITeamMemberRecord[]>('/team-member
     default: () => [],
 })
 
-const limit = useState('members-limit', () => 18)
+const limit = useState('members-limit', () => 36)
 
 const showMore = () => {
-    limit.value += 18
+    limit.value += 36
 }
 
 const teamMembers = computed(() => {
