@@ -11,13 +11,6 @@ export interface Contributor {
     rank: number
 }
 
-export interface Members {
-    username: string
-    id: number
-    avatar_url: string
-    org: string[]
-}
-
 export interface ITeamMemberRecord {
     username: string
     id: number
