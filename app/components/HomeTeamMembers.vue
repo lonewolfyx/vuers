@@ -4,7 +4,7 @@
             <span class="text-3xl text-foreground/80 dark:text-foreground">Core Team</span>
             <span class="text-muted-foreground">Meet the people behind vue and vueuse</span>
         </div>
-        <div class="w-full grid grid-cols-12 gap-4">
+        <div class="w-full grid grid-cols-12 gap-12">
             <div
                 v-for="(member, index) in teamMembers"
                 :key="`Core Team${index}`"
