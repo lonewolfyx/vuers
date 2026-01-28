@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col items-center gap-5">
         <NuxtLink
-            :to="`https://github.com/${member.username}`"
+            :to="`/${member.username}`"
             class="w-40 h-40"
             target="_blank"
         >
