@@ -34,21 +34,7 @@
                     class="h-4! bg-neutral-500/50"
                     orientation="vertical"
                 />
-                <Button
-                    as-child
-                    variant="ghost"
-                >
-                    <NuxtLink
-                        href="https://github.com"
-                        target="_blank"
-                    >
-                        <Icon
-                            mode="svg"
-                            name="line-md:github-loop"
-                        />
-                        <span>∞</span>
-                    </NuxtLink>
-                </Button>
+                <GithubLink />
                 <Separator
                     class="h-4! bg-neutral-500/50"
                     orientation="vertical"
@@ -60,6 +46,8 @@
 </template>
 
 <script lang="ts" setup>
+import GithubLink from '~/components/GitHubLink.vue'
+
 defineOptions({
     name: 'SiteHeader',
 })
