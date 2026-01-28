@@ -82,8 +82,6 @@ async function getCombinedOrgMembers(orgs: string[]) {
         return b.org.length - a.org.length
     })
 
-    console.log(JSON.stringify(result, null, 2))
-
     // count the overlap number
     const overlaps = result.filter(m => m.org.length > 1)
     console.log(`\nStatistics: There are ${result.length} unique members, of which ${overlaps.length} belongs to more than one organization`)
