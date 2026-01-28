@@ -16,7 +16,9 @@
         "typecheck": "nuxt typecheck",
         "lint": "eslint .",
         "lint:fix": "eslint --fix",
-        "prepare": "simple-git-hooks"
+        "prepare": "simple-git-hooks",
+        "collect:team:member": "tsx ./scripts/collect-team-member.ts",
+        "collect:contributors": "tsx ./scripts/collect-contributors.ts"
     },
     "dependencies": {
         "@octokit/plugin-paginate-rest": "^14.0.0",
