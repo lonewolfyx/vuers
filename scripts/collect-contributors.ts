@@ -6,7 +6,7 @@ import { retry } from '@octokit/plugin-retry'
 import dotenv from 'dotenv'
 import process from 'node:process'
 
-dotenv.config({ path: '../.env' })
+dotenv.config({ path: '.env' })
 
 const REQUIRED_TOKEN_MESSAGE = 'VUERS_GITHUB_TOKEN is required to collect contributor statistics'
 const ORGS = [
