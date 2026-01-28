@@ -13,10 +13,12 @@
         </NuxtLink>
         <div class="flex items-center gap-2">
             <Icon
+                v-if="member.org.includes('vuejs')"
                 mode="svg"
                 name="logos:vue"
             />
             <Icon
+                v-if="member.org.includes('vueuse')"
                 mode="svg"
                 name="logos:vueuse"
             />
