@@ -17,3 +17,10 @@ export interface Members {
     avatar_url: string
     org: string[]
 }
+
+export interface ITeamMemberRecord {
+    username: string
+    id: number
+    avatar_url: string
+    org: string[]
+}

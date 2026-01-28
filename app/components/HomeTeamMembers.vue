@@ -6,8 +6,8 @@
         </div>
         <div class="w-full grid grid-cols-12 gap-4">
             <div
-                v-for="item in Array.from({ length: 18 }, (_, i) => i+1)"
-                :key="`Core Team${item}`"
+                v-for="(member, index) in teamMembers"
+                :key="`Core Team${index}`"
                 class="col-span-12 md:col-span-4 xl:col-span-2"
             >
                 <div
@@ -22,9 +22,9 @@
                         )"
                     >
                         <img
-                            alt="Evan You"
+                            :alt="member.username"
                             class="relative h-full w-full object-cover object-bottom"
-                            src="https://avatars.githubusercontent.com/yyx990803"
+                            :src="member.avatar_url"
                         >
                         <div
                             class="to-bg-deep-purple-90 absolute left-0 bottom-0 h-1/2 w-full bg-gradient-to-t from-black/50 via-black/50 to-transparent"
@@ -40,7 +40,7 @@
                                     'text-muted dark:text-foreground',
                                 )"
                             >
-                                Evan You
+                                {{ member.username }}
                             </span>
                             <div class="flex items-center justify-center gap-1 mt-2">
                                 <Button
@@ -49,7 +49,10 @@
                                     size="icon"
                                     variant="ghost"
                                 >
-                                    <NuxtLink to="https://github.com">
+                                    <NuxtLink
+                                        :to="`https://github.com/${member.username}`"
+                                        target="_blank"
+                                    >
                                         <Icon
                                             class="text-muted dark:text-muted-foreground"
                                             mode="svg"
@@ -82,8 +85,21 @@
 
 <script lang="ts" setup>
 import { cn } from '~/lib/utils'
+import type { ITeamMemberRecord } from '#shared/types'
 
 defineOptions({
     name: 'HomeTeamMembers',
+})
+
+const url = useRequestURL().origin
+
+const { data: allTeamMembers } = useLazyFetch<ITeamMemberRecord[]>('/team-member.json', {
+    baseURL: url,
+    server: false,
+    default: () => [],
+})
+
+const teamMembers = computed(() => {
+    return allTeamMembers.value.slice(0, 18)
 })
 </script>
