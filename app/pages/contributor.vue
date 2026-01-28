@@ -87,10 +87,10 @@ const communityContributors = computed(() => {
     )
 })
 
-const limit = useState('contributors-limit', () => 18)
+const limit = useState('contributors-limit', () => 36)
 
 const showMore = () => {
-    limit.value += 18
+    limit.value += 36
 }
 
 const contributors = computed(() => {
