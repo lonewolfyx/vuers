@@ -36,7 +36,7 @@
                 variant="ghost"
             >
                 <NuxtLink
-                    :to="`https://github.com/`"
+                    :to="`https://github.com/${member.username}`"
                     target="_blank"
                 >
                     <Icon
